@@ -11,6 +11,7 @@ public class Conexion {
     public static String password;
     public static boolean status=false;
     public static Connection getConexion(){
+        status=false;
         String url="jdbc:sqlserver://localhost:1433;databaseName=MonumentalSoccer";
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -19,11 +20,11 @@ public class Conexion {
                 "Error de conexion",JOptionPane.ERROR_MESSAGE);
         }
         try{
-            contacto = DriverManager.getConnection(url,usuario,password);
+            contacto = DriverManager.getConnection(url,Conexion.usuario,Conexion.password);
             status=true;
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null,"Error" + e.getMessage(),
-            "Error de conexion",JOptionPane.ERROR_MESSAGE);
+            "Error de conexion, intentar nuevamente",JOptionPane.ERROR_MESSAGE);
         }
         return contacto;
     }
