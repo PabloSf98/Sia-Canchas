@@ -28,6 +28,22 @@ public class Conexion {
         }
         return contacto;
     }
+    
+    public static ResultSet Consulta (String consulta){
+    
+        Connection con = getConexion();
+        Statement declara;
+        try{
+            declara= con.createStatement();
+            ResultSet respuesta = declara.executeQuery(consulta);
+            return respuesta;
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Error" + e.getMessage(),
+            "Error de conexion, intentar nuevamente",JOptionPane.ERROR_MESSAGE);
+            
+        }
+        return null; 
+    }
     public static void setCuenta(String usuario, String password){
         Conexion.usuario=usuario;
         Conexion.password=password;
