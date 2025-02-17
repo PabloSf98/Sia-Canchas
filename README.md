@@ -1,2 +1,2 @@
 # Sia-Canchas
-Codigo de Netbeans, para interzas y coneccion con la BDD
+Codigo de Netbeans, para interfas y conexion con la BDD
